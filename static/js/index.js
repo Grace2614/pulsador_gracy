@@ -1,21 +1,10 @@
 //https://www.eclipse.org/paho/clients/js/
 
-var btn=document.getElementById('btn'),contador=0;
 function cambio()
-{if (contador==0)
 	{
-	message = new Paho.MQTT.Message("ENCENDER");
- 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
- 	client.send(message);
- 	contador=1;
- 	}
- else
- 	{
- 	message = new Paho.MQTT.Message("APAGAR");
-	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
-	client.send(message);
- 	contador=0;
- 	}
+	message = this._receivedMessages = {}; //  biblioteca cliente basada en navegador MQTT 
+ 	message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
+ 	alert(message);
 }
 
 
@@ -43,9 +32,9 @@ function cambio()
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("grace.bonilla@unach.edu.ec/tema1");
+    client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+    message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
     client.send(message);
 	
   }
@@ -66,16 +55,6 @@ function cambio()
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-          if(message.payloadString==='ENCENDER'){
-                   document.getElementById("imagen").src="https://aprendecomohacerlo.com/wp-content/uploads/2021/02/quitar-led-rojo-encendido-huawei.jpg";
-	  } else if (message.payloadString==='APAGAR'){
-                document.getElementById("imagen").src="https://i.ebayimg.com/images/g/mq0AAOSwETJaHXHd/s-l300.jpg ";
-	  }
-	  if(message.payloadString==='ENCENDER'){
-                  document.getElementById("btn").innerHTML="Apagar";
-	  }else if (message.payloadString==='APAGAR'){
-                  document.getElementById("btn").innerHTML="Encender";
-	  }
-	    
+	  
+	  
   }
-
