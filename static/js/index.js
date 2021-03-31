@@ -25,7 +25,7 @@
     console.log("Conectado...");
 	
     client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-    message = new Paho.MQTT.Message("hola desde la web");
+    message = new Paho.MQTT.Message("Datos del sensor");
     message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
     client.send(message);
 	
@@ -60,7 +60,7 @@ function control(){
 		datos[i] = message.payloadString;
 		UpdateElement(message.payloadString) 
 	}
-	document.write(datos);
+	document.getElementById("sensores").innerHTML= datos;
 	document.write("\n");
 	console.log(message.payloadString);
 
