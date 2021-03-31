@@ -57,7 +57,7 @@ function control(){
 	
 	alert(message.payloadString);
 	console.log(message.payloadString);
-	document.getElementById("Estado_del_sensor").innerHTML="led off";
+	//document.getElementById("Estado_del_sensor").innerHTML="led off";
 	//message = new Paho.MQTT.Message("OFF");
 	//message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
 	//client.send(message);
