@@ -55,12 +55,15 @@
 
 function control(){	
 	
-	//alert(message.payloadString);
+	var datos = new Array();
+	for (var i=0; i<=10; i++){
+		var datos[i] = message.payloadString;
+	}
+	document.write(var datos);
 	console.log(message.payloadString);
-	//document.getElementById("sensor").innerHTML="led off";
-	//message = new Paho.MQTT.Message("OFF");
-	//message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
-	//client.send(message);
 }
+
+
+
 
 
