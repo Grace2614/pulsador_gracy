@@ -1,23 +1,11 @@
 //https://www.eclipse.org/paho/clients/js/
-
-var btn=document.getElementById('btn'),contador=0;
-function cambio()
-{if (contador==0)
-	{
-	message = new Paho.MQTT.Message("ENCENDER");
- 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
- 	client.send(message);
- 	contador=1;
- 	}
- else
- 	{
- 	message = new Paho.MQTT.Message("APAGAR");
+function cambio() {
+	console.log("Historial");
+	//document.getElementById("sensor").innerHTML="led on";
+	message = new Paho.MQTT.Message("historial");
 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
 	client.send(message);
- 	contador=0;
- 	}
-}
-
+ 	
 
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
@@ -66,15 +54,6 @@ function cambio()
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-          if(message.payloadString==='ENCENDER'){
-                   document.getElementById("imagen").src="https://aprendecomohacerlo.com/wp-content/uploads/2021/02/quitar-led-rojo-encendido-huawei.jpg";
-	  } else if (message.payloadString==='APAGAR'){
-                document.getElementById("imagen").src="https://i.ebayimg.com/images/g/mq0AAOSwETJaHXHd/s-l300.jpg ";
-	  }
-	  if(message.payloadString==='ENCENDER'){
-                  document.getElementById("btn").innerHTML="Apagar";
-	  }else if (message.payloadString==='APAGAR'){
-                  document.getElementById("btn").innerHTML="Encender";
-	  }
-	    
+	  
+	  
   }
