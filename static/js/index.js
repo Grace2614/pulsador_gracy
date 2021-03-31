@@ -25,7 +25,7 @@
     console.log("Conectado...");
 	
     client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-    message = new Paho.MQTT.Message("hola desde la web");
+    message = new Paho.MQTT.Message("1");
     message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
     client.send(message);
 	
