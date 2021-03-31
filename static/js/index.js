@@ -25,9 +25,9 @@
     console.log("Conectado...");
 	
     client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-    message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
-    client.send(message);
+    //message = new Paho.MQTT.Message("hola desde la web");
+    //message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
+    //client.send(message);
 	
   }
 
@@ -46,7 +46,7 @@
   // called when a message arrives
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor").innerHTML=message.payloadString;
+	  document.getElementById("Estado_del_sensor").innerHTML=message.payloadString;
 	  
 	  
   }
@@ -57,7 +57,7 @@ function control(){
 	
 	alert(message.payloadString);
 	console.log(message.payloadString);
-	//document.getElementById("sensor").innerHTML="led off";
+	document.getElementById("Estado_del_sensor").innerHTML="led off";
 	//message = new Paho.MQTT.Message("OFF");
 	//message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
 	//client.send(message);
