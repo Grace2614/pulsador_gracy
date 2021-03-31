@@ -51,17 +51,24 @@
 	  
   }
 
-
+var i;
+var pulsador;
+while (i<=10){
+	i++;
+	pulsador = open('static/datos.txt','a')
+	pulsador.write(str(i))
+	pulsador.write(',')
+	pulsador.write(str(sensor))
+	pulsador.write('\n')
+	pulsador.close()
+}
 
 function control(){	
-	
-	var datos = new Array();
-	var archivoTxt=new XMLHttpRequest();
-	var fileRuta= '';
-	for (var i=0; i<=10; i++){
-		datos[i] = sensor;
-		document.write(datos);
-		document.write("<br>");
+	f=open('pulsador.txt','r')
+ 	lineas=f.readline()
+	f.close()
+	document.write(lineas);
+	document.write("<br>");
 	}
 }
 	//setTimeout(control,3000);
