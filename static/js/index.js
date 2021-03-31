@@ -58,7 +58,7 @@ function control(){
 	var datos = new Array(message.payloadString);
 	for (var i=0; i<=10; i++){
 		datos[i] = message.payloadString;
-		UpdateElement(message.payloadString) 
+		//UpdateElement(message.payloadString) 
 	}
 	document.getElementById("sensores").innerHTML= datos;
 	document.write("\n");
