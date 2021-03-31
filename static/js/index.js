@@ -60,6 +60,7 @@ function control(){
 		datos[i] = message.payloadString;
 	}
 	document.write(datos);
+	document.write('\n');
 	console.log(message.payloadString);
 }
 
