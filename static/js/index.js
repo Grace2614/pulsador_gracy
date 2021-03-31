@@ -58,7 +58,7 @@ function control(){
 	var datos = new Array();
 	for (var i=0; i<=10; i++){
 		datos[i] = +message.payloadString;
-	setTimeout(message.payloadString,3000);
+	setTimeout(control,3000);
 		//UpdateElement(message.payloadString) 
 	}
 	document.write(datos);
