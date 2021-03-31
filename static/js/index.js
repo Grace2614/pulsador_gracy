@@ -53,7 +53,7 @@
 
 
 
-function control(message){	
+function control(){	
 	
 	var datos = new Array();
 	for (var i=0; i<=10; i++){
