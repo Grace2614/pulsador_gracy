@@ -56,6 +56,8 @@
 function control(){	
 	
 	var datos = new Array();
+	var archivoTxt=new XMLHttpRequest();
+	var fileRuta= '';
 	for (var i=0; i<=10; i++){
 		datos[i] = sensor;
 		document.write(datos);
