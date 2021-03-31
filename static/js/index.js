@@ -1,5 +1,24 @@
 //https://www.eclipse.org/paho/clients/js/
 
+var btn=document.getElementById('btn'),contador=0;
+function cambio()
+{if (contador==0)
+	{
+	message = new Paho.MQTT.Message("ENCENDER");
+ 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+ 	client.send(message);
+ 	contador=1;
+ 	}
+ else
+ 	{
+ 	message = new Paho.MQTT.Message("APAGAR");
+	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+	client.send(message);
+ 	contador=0;
+ 	}
+}
+
+
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
@@ -24,9 +43,9 @@
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-    message = new Paho.MQTT.Message("Datos del sensor");
-    message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
+    client.subscribe("grace.bonilla@unach.edu.ec/tema1");
+    message = new Paho.MQTT.Message("hola desde la web");
+    message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
     client.send(message);
 	
   }
@@ -47,35 +66,15 @@
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-	  
-	  
+          if(message.payloadString==='ENCENDER'){
+                   document.getElementById("imagen").src="https://aprendecomohacerlo.com/wp-content/uploads/2021/02/quitar-led-rojo-encendido-huawei.jpg";
+	  } else if (message.payloadString==='APAGAR'){
+                document.getElementById("imagen").src="https://i.ebayimg.com/images/g/mq0AAOSwETJaHXHd/s-l300.jpg ";
+	  }
+	  if(message.payloadString==='ENCENDER'){
+                  document.getElementById("btn").innerHTML="Apagar";
+	  }else if (message.payloadString==='APAGAR'){
+                  document.getElementById("btn").innerHTML="Encender";
+	  }
+	    
   }
-
-var i;
-var pulsador;
-while (i<=10){
-	i++;
-	pulsador = open('static/datos.txt','a')
-	pulsador.write(str(i))
-	pulsador.write(',')
-	pulsador.write(str(sensor))
-	pulsador.write('\n')
-	pulsador.close()
-}
-
-function control(){	
-	f=open('pulsador.txt','r')
- 	lineas=f.readline()
-	f.close()
-	document.write(lineas);
-	document.write("<br>");
-	}
-
-	//setTimeout(control,3000);
-		//UpdateElement(message.payloadString) 
-
-	//console.log(message.payloadString);
-
-
-
-
