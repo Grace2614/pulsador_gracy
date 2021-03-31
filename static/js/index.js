@@ -60,9 +60,9 @@ function control(){
 		datos[i] = message.payloadString;
 		//UpdateElement(message.payloadString) 
 	}
-	document.getElementById("sensores").innerHTML= datos;
-	document.write("\n");
-	console.log(message.payloadString);
+	document.write(datos);
+	document.write("<br>");
+	//console.log(message.payloadString);
 
 }
 
