@@ -1,13 +1,5 @@
 //https://www.eclipse.org/paho/clients/js/
 
-function cambio()
-	{
-	message = this._receivedMessages = {}; //  biblioteca cliente basada en navegador MQTT 
- 	message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
- 	alert(message);
-}
-
-
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
@@ -58,3 +50,17 @@ function cambio()
 	  
 	  
   }
+
+
+
+function control(){	
+	
+	alert(message.payloadString);
+	console.log(Recibido);
+	//document.getElementById("sensor").innerHTML="led off";
+	//message = new Paho.MQTT.Message("OFF");
+	//message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+	//client.send(message);
+}
+
+
