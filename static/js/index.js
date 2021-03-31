@@ -57,7 +57,7 @@ function control(){
 	
 	var datos = new Array();
 	for (var i=0; i<=10; i++){
-		datos[i] = onMessageArrived;
+		datos[i] = onMessageArrived(message);
 		document.write(datos);
 		document.write("<br>");
 	}
