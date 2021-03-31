@@ -57,9 +57,9 @@ function control(){
 	
 	var datos = new Array();
 	for (var i=0; i<=10; i++){
-		var datos[i] = message.payloadString;
+		datos[i] = message.payloadString;
 	}
-	document.write(var datos);
+	document.write(datos);
 	console.log(message.payloadString);
 }
 
