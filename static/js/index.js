@@ -45,20 +45,20 @@
 
   // called when a message arrives
   function onMessageArrived(message) {
-    console.log("onMessageArrived:"+message.payloadString);
-	  document.getElementById("sensor").innerHTML=message.payloadString;
-	  
-	  
+	var datos = new Array();
+	for (var i=0; i<=10; i++){
+		console.log("onMessageArrived:"+message.payloadString);
+	 		document.getElementById("sensor").innerHTML=message.payloadString;
+		datos[i] = message.payloadString;
+	}
+
+	 
   }
 
 
 
 function control(){	
 	
-	var datos = new Array();
-	for (var i=0; i<=10; i++){
-		datos[i] = message.payloadString;
-	}
 	document.write(datos);
 	document.write('\n');
 	console.log(message.payloadString);
