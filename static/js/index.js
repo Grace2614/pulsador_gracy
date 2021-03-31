@@ -70,7 +70,7 @@ function control(){
 	document.write(lineas);
 	document.write("<br>");
 	}
-}
+
 	//setTimeout(control,3000);
 		//UpdateElement(message.payloadString) 
 
