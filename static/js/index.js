@@ -53,11 +53,11 @@
 
 
 
-function control(){	
+function control(message){	
 	
 	var datos = new Array();
 	for (var i=0; i<=10; i++){
-		datos[i] = onMessageArrived(message);
+		datos[i] = message.payloadString;
 		document.write(datos);
 		document.write("<br>");
 	}
