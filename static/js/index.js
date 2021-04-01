@@ -56,6 +56,7 @@ function cambio() {
   function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-	 }
-setTimeout(onMessageArrived(message), 1000);
+	  setTimeout(onMessageArrived(message), 1000);	
+  }
+
  
