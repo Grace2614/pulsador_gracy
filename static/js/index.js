@@ -6,7 +6,6 @@ function cambio() {
 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
 	client.send(message);
  	
-
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
@@ -31,9 +30,9 @@ function cambio() {
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    client.subscribe("grace.bonilla@unach.edu.ec/tema1");
+    client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
     message = new Paho.MQTT.Message("hola desde la web");
-    message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
+    message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
     client.send(message);
 	
   }
@@ -50,10 +49,13 @@ function cambio() {
     }
   }
 
+ 
+	
+
   // called when a message arrives
-  function onMessageArrived(message) {
+  setTimeout(function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
+	 }, 1000);
 	  
-	  
-  }
+  
