@@ -30,7 +30,8 @@ function cambio() {
     // Once a connection has been made, make a subscription and send a message.
     console.log("Conectado...");
 	
-    
+    client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
+  
     //message = new Paho.MQTT.Message("hola desde la web");
    // message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
     //client.send(message);
@@ -57,7 +58,6 @@ function cambio() {
    console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
 	  setTimeout(onMessageArrived(message), 1000);}
-client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-  
+
 
  
