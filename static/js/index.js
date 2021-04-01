@@ -53,8 +53,9 @@ function cambio() {
 	
 
   // called when a message arrives
-  setTimeout(function onMessageArrived(message) {
+  function onMessageArrived(message) {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-	 }, 1000);
+	 }
+setTimeout(onMessageArrived(message), 1000);
  
