@@ -53,13 +53,10 @@ function cambio() {
 	
 
   // called when a message arrives
-var i=0;
-while (i <= 10) {
-   i++;
    function onMessageArrived(message) {
    console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
 	  setTimeout(onMessageArrived(message), 1000);}
-  }
+  
 
  
