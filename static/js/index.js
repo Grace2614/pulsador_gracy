@@ -31,7 +31,7 @@ function cambio() {
     console.log("Conectado...");
 	
     client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-    message = new Paho.MQTT.Message("hola desde la web");
+    //message = new Paho.MQTT.Message("hola desde la web");
     message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
     client.send(message);
 	
@@ -53,10 +53,13 @@ function cambio() {
 	
 
   // called when a message arrives
-  function onMessageArrived(message) {
-    console.log("onMessageArrived:"+message.payloadString);
+var i=0
+while (i <= 10) {
+   i++;
+   function onMessageArrived(message) {
+   console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-	  setTimeout(onMessageArrived(message), 1000);	
+	  setTimeout(onMessageArrived(message), 1000);}
   }
 
  
