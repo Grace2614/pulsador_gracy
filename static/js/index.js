@@ -57,5 +57,4 @@ function cambio() {
     console.log("onMessageArrived:"+message.payloadString);
 	  document.getElementById("sensor").innerHTML=message.payloadString;
 	 }, 1000);
-	  
-  
+ 
