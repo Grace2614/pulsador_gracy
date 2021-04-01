@@ -5,7 +5,7 @@ function cambio() {
 	message = new Paho.MQTT.Message("historial");
 	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
 	client.send(message);
- 	
+}
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
