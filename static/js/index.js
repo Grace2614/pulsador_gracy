@@ -1,11 +1,28 @@
 //https://www.eclipse.org/paho/clients/js/
-function cambio() {
-	console.log("Historial");
+
+function LED1_On() {
+	//alert("led on");
+	console.log("led on");
+	message = new Paho.MQTT.Message("ON");
+    	message.destinationName = "maribel.agudelo@unach.edu.ec/tema1";
+    	client.send(message);
 	//document.getElementById("sensor").innerHTML="led on";
-	message = new Paho.MQTT.Message("historial");
-	message.destinationName = "grace.bonilla@unach.edu.ec/tema1";
-	client.send(message);
+  
 }
+function LED1_Off(){	
+	//alert("led off");
+	console.log("led off");
+	message = new Paho.MQTT.Message("OFF");
+    	message.destinationName = "maribel.agudelo@unach.edu.ec/tema1";
+    	client.send(message);
+	//document.getElementById("sensor").innerHTML="led off";
+}
+
+
+
+
+
+
 // Create a client instance
   //client = new Paho.MQTT.Client("postman.cloudmqtt.com", 14970);
   
@@ -16,8 +33,8 @@ function cambio() {
   client.onMessageArrived = onMessageArrived;
   var options = {
    useSSL: false,
-    userName: "grace.bonilla@unach.edu.ec",
-    password: "Nataly16",
+    userName: "maribel.agudelo@unach.edu.ec",
+    password: "Saltarina1907981",
     onSuccess:onConnect,
     onFailure:doFail
   }
@@ -28,13 +45,12 @@ function cambio() {
   // called when the client connects
   function onConnect() {
     // Once a connection has been made, make a subscription and send a message.
-    console.log("Conectado...");
+    console.log("Conectado....");
 	
-    client.subscribe("grace.bonilla@unach.edu.ec/pulsador");
-  
-    //message = new Paho.MQTT.Message("hola desde la web");
-   // message.destinationName = "grace.bonilla@unach.edu.ec/pulsador";
-    //client.send(message);
+    client.subscribe("maribel.agudelo@unach.edu.ec/tema1");
+    message = new Paho.MQTT.Message("hola desde la web");
+    message.destinationName = "maribel.agudelo@unach.edu.ec/tema2";
+    client.send(message);
 	
   }
 
@@ -50,15 +66,9 @@ function cambio() {
     }
   }
 
- 
-	
-
   // called when a message arrives
-   function onMessageArrived(message) {
-   console.log("onMessageArrived:"+message.payloadString);
+  function onMessageArrived(message) {
+    console.log("onMessageArrived:"+message.payloadString);
+	  //document.getElementById("sensor").innerHTML="LISTO";
 	  document.getElementById("sensor").innerHTML=message.payloadString;
-	  //setTimeout(onMessageArrived(message), 1000);
-   }
-
-
- 
+  }
